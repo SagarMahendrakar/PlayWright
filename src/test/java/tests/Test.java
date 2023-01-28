@@ -1,16 +1,19 @@
 package tests;
 
-import org.testng.Assert;
+import Annotations.FrameworkAnnotation;
+import baseTest.BaseTest;
+import enums.CategoryType;
+import enums.ModulePages;
+import enums.TestCaseType;
 
-import constants.AppConstants;
-import pages.TestPage;
+public class Test extends BaseTest {
 
-public class Test extends Test2 {
-	
-	
-
+	@FrameworkAnnotation(category = { CategoryType.SMOKE }, type = TestCaseType.UI, page = ModulePages.MYPROFILEPAGE)
 	@org.testng.annotations.Test
-	public void homePageTitleTest() {
+	public void main() {
+
+		page.navigate("https://passbook.epfindia.gov.in/MemberPassBook/Login");
 
 	}
+
 }

@@ -4,12 +4,12 @@ import java.util.Properties;
 
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import com.microsoft.playwright.Page;
 
-import pages.HomePage;
-import pages.LoginPage;
+
 import playWrightFactory.PlaywrightFactory;
 
 public class BaseTest {
@@ -20,7 +20,7 @@ public class BaseTest {
 
 	@Parameters({ "browser" })
 	@BeforeTest
-	public void setup(String browserName) {
+	public void setup(@Optional("chrome") String browserName) {
 		playwrightFactory = new PlaywrightFactory();
 
 		properties = playwrightFactory.init_properties();
